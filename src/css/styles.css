@@ -1,9 +1,7 @@
-body {
-  color: blue;
+footer {
+  font-size: 80%;
+  padding-top: 100px;
 }
-body a {
-  color: green;
-}
-body h1 {
+a {
   color: red;
 }

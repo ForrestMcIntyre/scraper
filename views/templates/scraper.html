@@ -1,0 +1,60 @@
+<div class="scraper"></div>
+<script id="scraper-template" type="html/text">
+<div>
+   <label for="url">URL:</label>
+http://<input name="url" id="url">
+<button class="update-url">Update Preview</button>
+</div>
+<div>
+<label for="cookie">Cookie:</label>
+<textarea></textarea>
+</div>
+<div>
+<iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="http://<%= url %>" width="800" height="600" seamless="seamless"></iframe>
+</div>
+<div>
+<button class="submit">Submit</button>
+</div>
+</script>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<script>
+var Scraper = Backbone.Model.extend({
+   defaults:{
+      url: "seattletimes.com",
+      cookie: null
+   },
+   setOptions: function(){
+      var url = $("#url");
+      var cookie = $("#cookie");
+      this.set("url", url);
+      this.set("cookie", cookie);
+   }
+});
+
+var ScraperView = Backbone.View.extend({
+   el: ".scraper",
+   template: _.template($("#scraper-template").html()),
+   initialize: function(){
+      this.listenTo(this.model, "change", this.render);
+   },
+   events: {
+      "click .update-url":"updateUrl"
+   },
+   updateUrl: function(e){
+      var url = $("#url").val();
+      this.model.set("url", url);
+   },
+   render: function(){
+      var data = this.model.toJSON();
+      this.$el.html(this.template(data));
+   }
+});
+
+var scrape = new Scraper();
+var view = new ScraperView({model:scrape});
+view.render();
+</script>
