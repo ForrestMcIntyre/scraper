@@ -1,3 +1,3 @@
 module.exports = function welcome(req, reply){
-  reply.view("index");
+  return reply.view("index");
 };
