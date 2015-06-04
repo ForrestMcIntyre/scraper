@@ -4,6 +4,7 @@
   "description": "Node based scraper application",
   "main": "index.js",
   "dependencies": {
+    "backbone": "^1.2.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.0",
     "grunt-concurrent": "^1.0.0",
@@ -11,7 +12,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.4.0",
     "handlebars": "^3.0.3",
-    "hapi": "^8.4.0"
+    "hapi": "^8.4.0",
+    "request": "^2.57.0",
+    "through2": "^0.6.5"
   },
   "devDependencies": {},
   "scripts": {

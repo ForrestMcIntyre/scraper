@@ -10,7 +10,7 @@ http://<input name="url" id="url">
 <textarea></textarea>
 </div>
 <div>
-<iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="http://<%= url %>" width="800" height="600" seamless="seamless"></iframe>
+<iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="proxy/<%= url %>" width="1200" height="600" seamless="seamless"></iframe>
 </div>
 <div>
 <button class="submit">Submit</button>
@@ -24,7 +24,7 @@ http://<input name="url" id="url">
 <script>
 var Scraper = Backbone.Model.extend({
    defaults:{
-      url: "seattletimes.com",
+      url: "google.com",
       cookie: null
    },
    setOptions: function(){
