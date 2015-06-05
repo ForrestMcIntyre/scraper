@@ -5,6 +5,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks("grunt-autoprefixer");
 	grunt.loadNpmTasks("grunt-concurrent");
 	grunt.loadNpmTasks("grunt-nodemon");
+	grunt.loadNpmTasks("grunt-browserify");
 
 	grunt.initConfig({
 		concurrent:{
@@ -40,6 +41,13 @@ module.exports = function(grunt){
     		dest: "build/css/"
     	}
     },
+		browserify: {
+			js: {
+				files: {
+					"build/js/scraper.js": "src/js/main.js"
+				}
+			}
+		},
     watch:{
     	options:{
     		livereload:true
@@ -55,9 +63,13 @@ module.exports = function(grunt){
     	html:{
     		files: "**/*.html",
     		tasks: []
-    	}
+    	},
+			js: {
+				files: "src/js/**/*.js",
+				tasks: ["browserify"]
+			}
     }
   });
 
-  grunt.registerTask("default", ["autoprefixer", "less", "concurrent"]);
+  grunt.registerTask("default", ["autoprefixer", "less", "browserify", "concurrent"]);
 };

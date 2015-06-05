@@ -17,6 +17,18 @@ var routes = [
 	method: "GET",
 	path: "/scraper",
 	handler:require("./handlers/scraper")
+},
+{
+   method: "GET",
+   path: "/proxy/{url}",
+   handler:require("./handlers/proxy")
+},
+{
+	method: "POST",
+	path: "/scraper",
+	handler: function(req, reply) {
+		console.log(req.payload);
+	}
 }
 ];
 
