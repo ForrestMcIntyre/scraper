@@ -16,7 +16,7 @@ var routes = [
 {
 	method: "GET",
 	path: "/scraper",
-	handler:require("./handlers/scraper")
+	handler:require("./handlers/scraperGet")
 },
 {
    method: "GET",
@@ -26,9 +26,7 @@ var routes = [
 {
 	method: "POST",
 	path: "/scraper",
-	handler: function(req, reply) {
-		console.log(req.payload);
-	}
+	handler:require("./handlers/scraperPost")
 }
 ];
 
