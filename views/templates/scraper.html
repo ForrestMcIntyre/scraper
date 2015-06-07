@@ -1,24 +1,26 @@
 <div class="scraper"></div>
 <script id="scraper-template" type="html/text">
-<div>
-   <label for="url">URL:</label>
-http://<input name="url" id="url">
-<button class="update-url">Update Preview</button>
-</div>
-<div>
-<label for="cookie">Cookie:</label>
-<textarea></textarea>
-</div>
-<div>
-<iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="proxy/<%= url %>" width="1200" height="600" seamless="seamless"></iframe>
-</div>
-<div>
-<label for="selector">Selector:</label>
-<input name="selector" id="selector">
-</div>
-<div>
-<button class="submit">Submit</button>
-</div>
+<form action="" method="post">
+   <div>
+         <label for="url">URL:</label>
+      http://<input name="url" id="url" value="<%= url %>">
+      <button class="update-url">Update Preview</button>
+   </div>
+   <div>
+      <label for="cookie">Cookie:</label>
+      <textarea name="cookie"></textarea>
+   </div>
+   <div>
+      <iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="proxy/<%= url %>" width="1200" height="600" seamless="seamless"></iframe>
+   </div>
+   <div>
+      <label for="selector">Selector:</label>
+      <input name="selector" id="selector">
+   </div>
+   <div>
+      <input type="submit"></input>
+   </div>
+</form>
 </script>
 
 <script src="/assets/js/scraper.js"></script>
