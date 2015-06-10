@@ -1,6 +1,11 @@
 <div class="scraper"></div>
 <script id="scraper-template" type="html/text">
-<form action="" method="post">
+<form action="/scraper" method="post">
+  <div>
+  {{#submitted}}
+  Your scrape has been successfully submitted! Results can be found <a href="#">here</a>
+  {{/submitted}}
+  </div>
    <div>
          <label for="url">URL:</label>
       http://<input name="url" id="url" value="<%= url %>">
