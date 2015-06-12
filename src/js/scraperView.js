@@ -12,6 +12,7 @@ var ScraperView = Backbone.View.extend({
       "click .update-url":"updateUrl"
    },
    updateUrl: function(e){
+     e.preventDefault();
       var url = $("#url").val();
       this.model.set("url", url);
    },
