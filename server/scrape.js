@@ -1,5 +1,6 @@
-var request = require("request");
+var request = require("./browser");
 var cheerio = require("cheerio");
+var async = require("async");
 
 module.exports = function(config, callback) {
   var requestConfig = {
@@ -14,9 +15,13 @@ module.exports = function(config, callback) {
     }
     var $ = cheerio.load(body);
     var selector = config.selector;
-    var result = $(selector);
-    console.log(result);
-    callback(null, result);
+    var rawResult = $(selector);
+
+    var result = rawResult.map(function(){
+      return $(this).text().trim();
+    });
+    console.log(result.toArray());
+    callback(null, result.toArray());
   };
 
   request(requestConfig, processRequest);
