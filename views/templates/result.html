@@ -1,3 +1,6 @@
 <div class="results">
-  {{result}}
+  <p>Your result for {{url}} with a selector of {{selector}} is:</p>
+  {{#result}}
+    <div>{{.}}</div>
+  {{/result}}
 </div>

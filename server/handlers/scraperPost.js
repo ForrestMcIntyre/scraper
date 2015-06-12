@@ -9,7 +9,9 @@ module.exports = function(req, reply) {
      selector: req.payload.selector
    }, function(err, result) {
     return reply.view("result", {
-      result: result
+      result: result,
+      url: req.payload.url,
+      selector: req.payload.selector
     });
    })
 };
