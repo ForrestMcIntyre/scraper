@@ -2,7 +2,7 @@ var Backbone = require("backbone");
 
 var Scraper = Backbone.Model.extend({
    defaults:{
-      url: "google.com",
+      url: "facebook.com",
       cookie: null,
       submitted: false
    },
