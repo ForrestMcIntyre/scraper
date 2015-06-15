@@ -1,29 +1,49 @@
 <div class="scraper"></div>
 <script id="scraper-template" type="html/text">
+
 <form action="/scraper" method="post">
-  <div>
-  {{#submitted}}
-  Your scrape has been successfully submitted! Results can be found <a href="#">here</a>
-  {{/submitted}}
-  </div>
-   <div>
-         <label for="url">URL:</label>
-      http://<input name="url" id="url" value="<%= url %>">
-      <button class="update-url">Update Preview</button>
+   {{#submitted}}
+   <div class="alert alert-dismissible alert-success">
+      Your scrape has been successfully submitted! Results can be found <a href="#">here</a>
    </div>
-   <div>
-      <label for="cookie">Cookie:</label>
-      <textarea name="cookie"></textarea>
-   </div>
-   <div>
-      <iframe sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-pointer-lock" src="proxy/<%= url %>" width="1200" height="600" seamless="seamless"></iframe>
-   </div>
-   <div>
-      <label for="selector">Selector:</label>
-      <input name="selector" id="selector">
-   </div>
-   <div>
-      <input type="submit"></input>
+   {{/submitted}}
+
+   <div class="row form-group">
+      <!-- URL Input -->
+      <div class="col-lg-6">
+      <label class="control-label" for="url">URL</label>
+      <div class="input-group">
+      <span class="input-group-addon">http://</span>
+      <input type="text" class="form-control" name="url" id="url" value="<%= url %>">
+      <span class="input-group-btn">
+         <button class="btn btn-default update-url" type="button">Update Preview</button>
+      </span>
+      </div>
+      <span class="text-muted help-block">The URL you wish to scrape with the http:// ommitted</span>
+      </div>
+
+      <!-- Selector Input -->
+      <div class="col-lg-6">
+      <label class="control-label" for="selector">Selector</label>
+      <input type="text" class="form-control" name="selector" id="selector">
+      <span class="help-block text-muted">The elements you wish to scrape for. Try clicking on the preview below to auto-populate this field</span>
+      </div>
+
+      <!-- Cookie Input -->
+      <div class="col-lg-12">
+      <label class="control-label" for="cookie">Cookie</label>
+      <textarea name="cookie" rows="3" class="form-control"></textarea>
+      <span class="help-block text-muted">Your cookie can be found in the console under the network tab in the request headers</span>
+
+
+
+      <!-- Submit Button -->
+      <input type="submit" class="btn btn-success col-xs-12 col-md-1" value="Scrape"></input>
+
+      <!-- iFrame -->
+      <div class="row">
+         <div class="col-lg-12"><iframe src="proxy/<%= url %>" width="800" height="600" seamless="seamless"></iframe></div>
+      </div>
    </div>
 </form>
 </script>

@@ -1,7 +1,19 @@
+body {
+  padding-top: 70px;
+}
+header {
+  border-bottom: 1px solid black;
+}
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 footer {
   font-size: 80%;
   padding-top: 100px;
+  text-align: center;
 }
-a {
-  color: red;
+iframe {
+  margin-top: 20px;
 }
