@@ -8,10 +8,13 @@ module.exports = function(req, reply) {
      cookie: req.payload.cookie,
      selector: req.payload.selector
    }, function(err, result) {
+      var cookie = (!req.payload.cookie) ? null : req.payload.cookie;
+      console.log(cookie);
     return reply.view("result", {
       result: result,
       url: req.payload.url,
-      selector: req.payload.selector
+      selector: req.payload.selector,
+      cookie: cookie
     });
    })
 };

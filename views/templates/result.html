@@ -1,5 +1,5 @@
 <div class="results">
-  <p>Your result for {{url}} with a selector of {{selector}} is:</p>
+  <p>Your result for {{url}} with a selector of {{selector}} {{#cookie}} and a cookie of {{.}} {{/cookie}} is:</p>
   {{#result}}
     <div>{{.}}</div>
   {{/result}}
