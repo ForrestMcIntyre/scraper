@@ -14,4 +14,10 @@ server.views({
   isCached: false
 });
 
+var sql = require("./database");
+sql.init(function(){
+  server.start();
+});
+
+
 server.route(require("./server/routes.js"));

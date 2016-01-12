@@ -18,6 +18,7 @@
     "hapi": "^8.4.0",
     "jquery": "^2.1.4",
     "request": "^2.57.0",
+    "sqlite3": "^3.1.1",
     "through2": "^0.6.5",
     "underscore": "^1.8.3"
   },
