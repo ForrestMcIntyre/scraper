@@ -1,5 +1,5 @@
 # Project: SCRAPE
-Project: SCRAPE is a scraper application using javascript on both the client as well as the server.
+Project: SCRAPE is a scraper application using JavaScript on both the client as well as the server.
 
 ## Set Up (Local)
 1. Install [Node](https://nodejs.org/)
