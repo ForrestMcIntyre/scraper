@@ -12650,7 +12650,7 @@ var Backbone = require("backbone");
 
 var Scraper = Backbone.Model.extend({
    defaults:{
-      url: "facebook.com",
+      url: "reddit.com",
       cookie: null,
       submitted: false
    },
